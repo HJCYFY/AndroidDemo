@@ -8,9 +8,12 @@
 #include "lib/mat.h"
 #include "lib/imgproc.h"
 #include "match_info.h"
-#include "imread.h"
 namespace pano {
 // A transparent reference to a image in file
+
+
+    Mat32f read_img(const char* fname);
+
     struct ImageRef {
         std::string fname;
         Mat32f* img = nullptr;
@@ -23,7 +26,7 @@ namespace pano {
         void load() {
             if (img) return;
             //ToDo
-//            img = new Mat32f{read_img(fname.c_str())};
+            img = new Mat32f{read_img(fname.c_str())};
             _width = img->width();
             _height = img->height();
         }

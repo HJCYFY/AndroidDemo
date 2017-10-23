@@ -9,17 +9,6 @@ using namespace std;
 
 namespace config {
 
-// TODO allow different types for a value. using template
-    ConfigParser::ConfigParser(const char* fname) {
-        //ToDo
-    }
-
-    float ConfigParser::get(const std::string& s) {
-        if (data.count(s) == 0)
-            return -1.0;
-        return data[s];
-    }
-
     bool CYLINDER;
     bool TRANS;
     bool CROP;
@@ -66,6 +55,62 @@ namespace config {
     float SLOPE_PLAIN;
 
     int MULTIBAND;
+
+
+    void SetDefaultParam(){
+        CYLINDER = false;
+        TRANS = false;
+        ESTIMATE_CAMERA = true;
+
+        ORDERED_INPUT = false;
+        CROP = true;
+        MAX_OUTPUT_SIZE = 8000;
+        LAZY_READ = true;
+
+        FOCAL_LENGTH = 37;
+
+        SIFT_WORKING_SIZE = 800;
+        NUM_OCTAVE = 3;
+        NUM_SCALE = 7;
+        SCALE_FACTOR = 1.4142135623;
+        GAUSS_SIGMA = 1.4142135623;
+        GAUSS_WINDOW_FACTOR = 4;
+
+        CONTRAST_THRES = 3e-2;
+
+        JUDGE_EXTREMA_DIFF_THRES = 2e-3;
+
+        EDGE_RATIO = 10;
+
+        PRE_COLOR_THRES = 5e-2;
+
+        CALC_OFFSET_DEPTH = 4;
+
+        OFFSET_THRES = 0.5;
+
+        ORI_RADIUS = 4.5;
+
+        ORI_HIST_SMOOTH_COUNT = 2;
+        DESC_HIST_SCALE_FACTOR = 3;
+        DESC_INT_FACTOR = 512;
+
+        MATCH_REJECT_NEXT_RATIO = 0.8;
+
+        RANSAC_ITERATIONS = 1500;
+        RANSAC_INLIER_THRES = 3.5;
+
+        INLIER_IN_MATCH_RATIO = 0.1;
+        INLIER_IN_POINTS_RATIO = 0.04;
+
+        STRAIGHTEN = 1;
+        SLOPE_PLAIN = 8e-3;
+        LM_LAMBDA = 5;
+        MULTIPASS_BA = 1;
+
+        MULTIBAND = 0;
+
+    }
+
 
 }
 

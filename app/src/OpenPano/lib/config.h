@@ -11,14 +11,7 @@
 
 namespace config {
 
-    class ConfigParser {
-    public:
-        std::map<std::string, float> data;
-
-        ConfigParser(const char* fname);
-
-        float get(const std::string& s);
-    };
+    void SetDefaultParam();
 
     extern bool CYLINDER;
     extern bool TRANS;

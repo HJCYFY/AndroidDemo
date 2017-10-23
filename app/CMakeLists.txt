@@ -9,11 +9,13 @@ include_directories(${INC_DIR}
                     ${CMAKE_CURRENT_SOURCE_DIR}/src/OpenPano/
                     ${CMAKE_CURRENT_SOURCE_DIR}/src/OpenPano/third_Part/)
 
+add_definitions(-O3 -Wall -Wextra)
 # find sources
 file(GLOB SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/src/OpenPano/feature/*.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/OpenPano/stitch/*.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/OpenPano/lib/*.cpp)
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/OpenPano/lib/*.cpp
+        )
 
 
 add_library( native-lib

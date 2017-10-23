@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private static final String TAG = "MainActivity";
-    private String picsPath = Environment.getExternalStorageDirectory().getAbsolutePath()+"/DCIM/Camera/test.jpg";
+    private String picsPath = Environment.getExternalStorageDirectory().getAbsolutePath()+"/data";
     private String resultPath =Environment.getExternalStorageDirectory().getAbsolutePath()+"/DCIM/Camera/output.jpg";
 
     @Override
@@ -48,9 +48,14 @@ public class MainActivity extends AppCompatActivity {
                     .show();
             return;
         }
-        nativeCompressBitmap(picsPath,resultPath);
+//        nativeCompressBitmap(picsPath,resultPath);
+        stitchImg(13,picsPath,resultPath);
         view.setClickable(true);
+
+        Toast.makeText(MainActivity.this, "finish", Toast.LENGTH_SHORT)
+                .show();
     }
 
     public native int nativeCompressBitmap(String souPath,String resultPath);
+    public native void stitchImg(int imgNum,String souPath,String resultPath);
 }

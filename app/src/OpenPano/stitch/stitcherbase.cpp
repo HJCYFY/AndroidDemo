@@ -9,6 +9,7 @@ namespace pano {
 
     void StitcherBase::calc_feature() {
         GuardedTimer tm("calc_feature()");
+        LOGD("imgs size %d\n",imgs.size());
         feats.resize(imgs.size());
         keypoints.resize(imgs.size());
         // detect feature

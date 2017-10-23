@@ -61,7 +61,6 @@ read_JPEG_file (const char * filename) {
     buffer = (*cinfo.mem->alloc_sarray)
             ((j_common_ptr) &cinfo, JPOOL_IMAGE, row_stride, 1);
     Matuc mat(cinfo.image_height,cinfo.image_width,cinfo.num_components);
-    LOGD("cinfo.output_height %d \n",cinfo.output_height);
     while (cinfo.output_scanline < cinfo.output_height) {
         (void) jpeg_read_scanlines(&cinfo, buffer, 1);
         // 这里将图片存起来
@@ -70,6 +69,5 @@ read_JPEG_file (const char * filename) {
     (void) jpeg_finish_decompress(&cinfo);
     jpeg_destroy_decompress(&cinfo);
     fclose(infile);
-    LOGD("return 1\n");
     return mat;
 }
